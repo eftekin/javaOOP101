@@ -10,13 +10,6 @@ I am currently enrolled in the Learn Java course on Codecademy, and this reposit
 
 In addition to my Codecademy projects, I will be uploading the code for lab assignments from my OOP-1 course at school. These labs will include various coding tasks, exercises, and challenges provided by my instructor.
 
-### Lab Assignments
-
-- **Lab 1:** [Assignment 1](https://github.com/eftekin/Learn-OOP-1-with-Java/tree/main/Lab%20Assignments/Assignment%201)
-- **Lab 2:** [Assignment 2](https://github.com/eftekin/Learn-OOP-1-with-Java/tree/main/Lab%20Assignments/Assignment%202)
-- **Lab 3:** [Assignment 3](https://github.com/eftekin/Learn-OOP-1-with-Java/tree/main/Lab%20Assignments/Assignment%203)
-- ...
-
 Feel free to explore the code, projects, and lab assignments in this repository. If you have any questions, suggestions, or if you notice any improvements that can be made, please don't hesitate to reach out. I'm open to collaboration and eager to enhance my Java programming skills.
 
 Happy coding!
