@@ -1,15 +1,13 @@
-# Learn OOP with Java
+# Java Object-Oriented Programming (OOP) Journey ☕️
 
-Welcome to my Java learning journey for the Object-Oriented Programming 1 (OOP-1) course! This repository is a collection of code and lab assignments related to my OOP-1 course at school, as well as projects from the Learn Java course on Codecademy.
+This repository contains my progress and lab assignments for the Codecademy Learn Java and Object-Oriented Programming (OOP) courses. I am using this repository to track my learning journey and share my code with others who may find it helpful.
 
-## Codecademy Learn Java Course
+## Courses Included
+- [Learn Java](https://www.codecademy.com/learn/learn-java)
+- [Object-Oriented Programming (OOP)](https://github.com/eftekin/javaOOP101/tree/main/oop)
 
-I am currently enrolled in the Learn Java course on Codecademy, and this repository serves as a place to showcase the projects I complete as part of the course.
+## Folder Structure
+- `learn-java`: Contains my progress and exercises from the Learn Java course.
+- `oop-labs`: Contains my lab assignments and projects from the OOP course.
 
-## School Lab Assignments
-
-In addition to my Codecademy projects, I will be uploading the code for lab assignments from my OOP-1 course at school. These labs will include various coding tasks, exercises, and challenges provided by my instructor.
-
-Feel free to explore the code, projects, and lab assignments in this repository. If you have any questions, suggestions, or if you notice any improvements that can be made, please don't hesitate to reach out. I'm open to collaboration and eager to enhance my Java programming skills.
-
-Happy coding!
+Feel free to explore the code and use it as a reference for your own learning journey. If you have any suggestions or improvements, please feel free to open an issue or submit a pull request. Happy coding!
