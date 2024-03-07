@@ -4,7 +4,7 @@ This repository contains my progress and lab assignments for the Codecademy Lear
 
 ## Courses Included
 - [Learn Java](https://www.codecademy.com/learn/learn-java)
-- [Object-Oriented Programming (OOP)](https://github.com/eftekin/javaOOP101/tree/main/oop)
+- [Object-Oriented Programming (OOP)](https://github.com/eftekin/javaOOP101/tree/main/oop-labs)
 
 ## Folder Structure
 - `learn-java`: Contains my progress and exercises from the Learn Java course.
