@@ -1,4 +1,4 @@
-# Learn-OOP-1-with-Java
+# Learn OOP with Java
 
 Welcome to my Java learning journey for the Object-Oriented Programming 1 (OOP-1) course! This repository is a collection of code and lab assignments related to my OOP-1 course at school, as well as projects from the Learn Java course on Codecademy.
 
