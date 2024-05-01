@@ -1,5 +1,3 @@
-
-// import the necessary classes
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
@@ -21,38 +19,42 @@ public class ArrayListLab {
         }
 
         // print unsorted ArrayList
-        System.out.println("The list with random numbers (1-100):");
+        System.out.println("The list with random numbers (1-100)");
         System.out.println(myList);
 
         // sort and print the sorted ArrayList
         Collections.sort(myList);
-        System.out.println("Sorted list: ");
+        System.out.println("\n\nSorted list ");
         System.out.println(myList);
 
         // take int from user to search in the list
-        System.out.print("Enter a number to search for: ");
-        int numToSearch = scanner.nextInt();
+        System.out.print("\nEnter a number to search for: ");
+        int num = scanner.nextInt();
 
         // get evenList, oddList and the num to search
+        int evenCounter = 0;
+        int oddCounter = 0;
         int counter = 0;
         for (int i = 0; i < myList.size(); i++) {
             if (myList.get(i) % 2 == 0) {
                 evenList.add(myList.get(i));
+                evenCounter++;
             } else {
                 oddList.add(myList.get(i));
+                oddCounter++;
             }
-            if (myList.get(i) == numToSearch) {
+            if (myList.get(i) == num) {
                 counter++;
             }
 
         }
 
         // print even and odd numbers
-        System.out.println("Even numbers in the list: " + evenList);
-        System.out.println("Odd numbers in the list: " + oddList);
-        
+        System.out.println(evenCounter + " even numbers in the list: " + evenList + "\n");
+        System.out.println(oddCounter + " odd number s in the list: " + oddList + "\n");
+
         // print how many times the number repeated
-        System.out.println("The number " + "(" + numToSearch + ")" + " occured " + counter + " times in the ArrayList.");
+        System.out.println("The number " + "(" + num + ")" + " occured " + counter + " times in the ArrayList.");
     }
 
 }
