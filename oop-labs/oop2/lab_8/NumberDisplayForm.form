@@ -55,9 +55,12 @@
           </grid>
         </constraints>
         <properties>
+          <enabled value="true"/>
+          <font style="1"/>
+          <foreground color="-1763047"/>
           <icon value="assets/flower.png"/>
           <margin top="0" left="0" bottom="0" right="0"/>
-          <text value="Show"/>
+          <text value="SHOW"/>
         </properties>
       </component>
     </children>
