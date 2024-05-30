@@ -19,7 +19,7 @@ academicians_df.to_csv("academicians.csv", index=False)
 
 # Student table
 students = []
-for i in range(1, 101):
+for i in range(1, 20):
     students.append(
         [i, fake.first_name(), fake.last_name(), f"C{random.randint(100, 199)}"]
     )
