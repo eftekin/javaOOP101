@@ -1,19 +1,25 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
 import java.sql.*;
 
-public class UniversityGUI {
-    private JFrame frame;
+public class UniversityUI {
     private JTable table;
-    private JTextField nameField;
     private JTextField surnameField;
+    private JTextField nameField;
     private JTextField courseField;
     private JRadioButton studentRadio;
+    private JRadioButton academicianRadio;
+    private JButton updateButton;
+    private JButton deleteButton;
+    private JButton insertButton;
+    private JLabel nameLabel;
+    private JLabel surnameLabel;
+    private JLabel courseLabel;
     private DefaultTableModel tableModel;
     private Connection connection;
+    private JPanel mainPanel;
 
-    public UniversityGUI() {
+    public UniversityUI() {
         initialize();
         connectToDatabase();
         loadTableData();
@@ -22,83 +28,23 @@ public class UniversityGUI {
     private void connectToDatabase() {
         connection = DatabaseConnection.connect();
         if (connection == null) {
-            JOptionPane.showMessageDialog(frame, "Database connection failed.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(mainPanel, "Database connection failed.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 
     private void initialize() {
-        frame = new JFrame();
-        frame.setBounds(100, 100, 600, 400);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().setLayout(null);
-
-        JScrollPane scrollPane = new JScrollPane();
-        scrollPane.setBounds(10, 10, 400, 200);
-        frame.getContentPane().add(scrollPane);
-
-        table = new JTable();
         tableModel = new DefaultTableModel(
                 new Object[][] {},
-                new String[] { "ID", "Name", "Surname", "Course" });
+                new String[] { "ID", "Name", "Surname", "Course" }
+        );
         table.setModel(tableModel);
-        scrollPane.setViewportView(table);
-
-        studentRadio = new JRadioButton("Student");
-        studentRadio.setBounds(10, 220, 100, 30);
-        frame.getContentPane().add(studentRadio);
-
-        JRadioButton academicianRadio = new JRadioButton("Academician");
-        academicianRadio.setBounds(120, 220, 100, 30);
-        frame.getContentPane().add(academicianRadio);
-
-        ButtonGroup group = new ButtonGroup();
-        group.add(studentRadio);
-        group.add(academicianRadio);
 
         studentRadio.addActionListener(e -> loadTableData());
         academicianRadio.addActionListener(e -> loadTableData());
 
-        JLabel nameLabel = new JLabel("Name:");
-        nameLabel.setBounds(10, 260, 80, 25);
-        frame.getContentPane().add(nameLabel);
-
-        nameField = new JTextField();
-        nameField.setBounds(100, 260, 165, 25);
-        frame.getContentPane().add(nameField);
-
-        JLabel surnameLabel = new JLabel("Surname:");
-        surnameLabel.setBounds(10, 290, 80, 25);
-        frame.getContentPane().add(surnameLabel);
-
-        surnameField = new JTextField();
-        surnameField.setBounds(100, 290, 165, 25);
-        frame.getContentPane().add(surnameField);
-
-        JLabel courseLabel = new JLabel("Course:");
-        courseLabel.setBounds(10, 320, 80, 25);
-        frame.getContentPane().add(courseLabel);
-
-        courseField = new JTextField();
-        courseField.setBounds(100, 320, 165, 25);
-        frame.getContentPane().add(courseField);
-
-        JButton insertButton = new JButton("INSERT");
-        insertButton.setIcon(new ImageIcon("assets/insert-icon.png"));
-        insertButton.setBounds(450, 170, 100, 40);
         insertButton.addActionListener(e -> insertRecord());
-        frame.getContentPane().add(insertButton);
-
-        JButton updateButton = new JButton("UPDATE");
-        updateButton.setIcon(new ImageIcon("assets/update-icon.png"));
-        updateButton.setBounds(450, 210, 100, 40);
         updateButton.addActionListener(e -> updateRecord());
-        frame.getContentPane().add(updateButton);
-
-        JButton deleteButton = new JButton("DELETE");
-        deleteButton.setIcon(new ImageIcon("assets/delete-icon.png"));
-        deleteButton.setBounds(450, 250, 100, 40);
         deleteButton.addActionListener(e -> deleteRecord());
-        frame.getContentPane().add(deleteButton);
     }
 
     private void loadTableData() {
@@ -106,7 +52,7 @@ public class UniversityGUI {
         try {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM " + tableName);
-            tableModel.setRowCount(0);
+            tableModel.setRowCount(0); // Reset table data
             while (rs.next()) {
                 tableModel.addRow(new Object[] {
                         rs.getInt(1),
@@ -125,7 +71,15 @@ public class UniversityGUI {
         String surname = surnameField.getText();
         String course = courseField.getText();
 
-        if (fillAllFields(name, surname, course)) return;
+        if (name.isEmpty() || surname.isEmpty() || course.isEmpty()) {
+            JOptionPane.showMessageDialog(mainPanel, "Please fill in all fields.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        if (courseExists(course)) {
+            JOptionPane.showMessageDialog(mainPanel, "Course does not exist.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
         String tableName = studentRadio.isSelected() ? "Student" : "Academician";
         try {
@@ -139,19 +93,6 @@ public class UniversityGUI {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-
-    private boolean fillAllFields(String name, String surname, String course) {
-        if (name.isEmpty() || surname.isEmpty() || course.isEmpty()) {
-            JOptionPane.showMessageDialog(frame, "Please fill in all fields.", "Error", JOptionPane.ERROR_MESSAGE);
-            return true;
-        }
-
-        if (courseExists(course)) {
-            JOptionPane.showMessageDialog(frame, "Course does not exist.", "Error", JOptionPane.ERROR_MESSAGE);
-            return true;
-        }
-        return false;
     }
 
     private void updateRecord() {
@@ -174,7 +115,10 @@ public class UniversityGUI {
                     course = (String) table.getValueAt(selectedRow, 3);
                 }
 
-                if (fillAllFields(name, surname, course)) return;
+                if (courseExists(course)) {
+                    JOptionPane.showMessageDialog(mainPanel, "Course does not exist.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
 
                 String query = "UPDATE " + tableName + " SET Name=?, Surname=?, CourseCode=? WHERE " + idColumn + "=?";
                 PreparedStatement pstmt = connection.prepareStatement(query);
@@ -185,7 +129,7 @@ public class UniversityGUI {
                 pstmt.executeUpdate();
                 loadTableData();
             } else {
-                JOptionPane.showMessageDialog(frame, "Please select a record to update.", "Error",
+                JOptionPane.showMessageDialog(mainPanel, "Please select a record to update.", "Error",
                         JOptionPane.ERROR_MESSAGE);
             }
         } catch (SQLException e) {
@@ -206,7 +150,7 @@ public class UniversityGUI {
                 pstmt.executeUpdate();
                 loadTableData();
             } else {
-                JOptionPane.showMessageDialog(frame, "Please select a record to delete.", "Error",
+                JOptionPane.showMessageDialog(mainPanel, "Please select a record to delete.", "Error",
                         JOptionPane.ERROR_MESSAGE);
             }
         } catch (SQLException e) {
@@ -228,10 +172,15 @@ public class UniversityGUI {
     }
 
     public static void main(String[] args) {
-        EventQueue.invokeLater(() -> {
+        SwingUtilities.invokeLater(() -> {
             try {
-                UniversityGUI window = new UniversityGUI();
-                window.frame.setVisible(true);
+                UniversityUI window = new UniversityUI();
+                JFrame frame = new JFrame("University Management");
+                frame.setContentPane(window.mainPanel);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setSize(900, 600); // Set the frame size
+                frame.setResizable(false); // Make the frame non-resizable
+                frame.setVisible(true);
             } catch (Exception e) {
                 e.printStackTrace();
             }
