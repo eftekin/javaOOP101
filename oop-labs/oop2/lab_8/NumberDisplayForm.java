@@ -20,9 +20,7 @@ public class NumberDisplayForm {
             @Override
             public void actionPerformed(ActionEvent e) {
                 textArea.setText(""); // Clear text area
-                if (multiplesOf3And5RadioButton.isSelected()) {
-                    displayMultiplesOf3And5();
-                } else if (primeNumbersRadioButton.isSelected()) {
+                if(multiplesOf3And5RadioButton.isSelected()){
                     displayPrimeNumbers();
                 }
             }
