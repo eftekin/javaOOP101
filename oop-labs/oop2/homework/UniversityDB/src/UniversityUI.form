@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="UniversityUI">
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="8" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="15" left="15" bottom="15" right="15"/>
+    <constraints>
+      <xy x="20" y="20" width="744" height="624"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="6d22e" class="javax.swing.JTable" binding="table">
+        <constraints>
+          <grid row="0" column="0" row-span="3" col-span="3" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <minimum-size width="600" height="400"/>
+            <preferred-size width="600" height="400"/>
+            <maximum-size width="600" height="400"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="f49e5" class="javax.swing.JTextField" binding="surnameField">
+        <constraints>
+          <grid row="5" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="200" height="25"/>
+            <preferred-size width="200" height="25"/>
+            <maximum-size width="200" height="25"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="119f5" class="javax.swing.JTextField" binding="nameField">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="200" height="25"/>
+            <preferred-size width="200" height="25"/>
+            <maximum-size width="200" height="25"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="2555e" class="javax.swing.JTextField" binding="courseField">
+        <constraints>
+          <grid row="6" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="200" height="25"/>
+            <preferred-size width="200" height="25"/>
+            <maximum-size width="200" height="25"/>
+          </grid>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="157c6" class="javax.swing.JLabel" binding="nameLabel">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="80" height="25"/>
+            <preferred-size width="80" height="25"/>
+            <maximum-size width="80" height="25"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Name:"/>
+        </properties>
+      </component>
+      <component id="9091" class="javax.swing.JLabel" binding="surnameLabel">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="80" height="25"/>
+            <preferred-size width="80" height="25"/>
+            <maximum-size width="80" height="25"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Surname:"/>
+        </properties>
+      </component>
+      <component id="5ab6b" class="javax.swing.JLabel" binding="courseLabel">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Course"/>
+        </properties>
+      </component>
+      <component id="1e0fe" class="javax.swing.JButton" binding="updateButton">
+        <constraints>
+          <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="100" height="40"/>
+            <preferred-size width="100" height="40"/>
+            <maximum-size width="100" height="40"/>
+          </grid>
+        </constraints>
+        <properties>
+          <icon value="update-icon.png"/>
+          <text value="UPDATE"/>
+        </properties>
+      </component>
+      <component id="601d5" class="javax.swing.JButton" binding="deleteButton">
+        <constraints>
+          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="100" height="40"/>
+            <preferred-size width="100" height="40"/>
+            <maximum-size width="100" height="40"/>
+          </grid>
+        </constraints>
+        <properties>
+          <icon value="delete-icon.png"/>
+          <text value="DELETE"/>
+        </properties>
+      </component>
+      <component id="2e9af" class="javax.swing.JButton" binding="insertButton">
+        <constraints>
+          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <minimum-size width="100" height="40"/>
+            <preferred-size width="100" height="40"/>
+            <maximum-size width="100" height="40"/>
+          </grid>
+        </constraints>
+        <properties>
+          <icon value="insert-icon.png"/>
+          <text value="INSERT"/>
+        </properties>
+      </component>
+      <vspacer id="2a407">
+        <constraints>
+          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <vspacer id="a67a0">
+        <constraints>
+          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <component id="90ff2" class="javax.swing.JRadioButton" binding="studentRadio">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <minimum-size width="100" height="30"/>
+            <preferred-size width="100" height="30"/>
+            <maximum-size width="100" height="30"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Student"/>
+        </properties>
+      </component>
+      <component id="4c9ca" class="javax.swing.JRadioButton" binding="academicianRadio">
+        <constraints>
+          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="1" use-parent-layout="false">
+            <minimum-size width="150" height="30"/>
+            <preferred-size width="150" height="30"/>
+            <maximum-size width="150" height="30"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Academician"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
