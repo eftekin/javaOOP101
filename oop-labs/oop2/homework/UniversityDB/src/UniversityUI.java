@@ -35,9 +35,12 @@ public class UniversityUI {
     private void initialize() {
         tableModel = new DefaultTableModel(
                 new Object[][] {},
-                new String[] { "ID", "Name", "Surname", "Course" }
-        );
+                new String[] { "ID", "Name", "Surname", "Course" });
         table.setModel(tableModel);
+
+        ButtonGroup buttonGroup = new ButtonGroup();
+        buttonGroup.add(studentRadio);
+        buttonGroup.add(academicianRadio);
 
         studentRadio.addActionListener(e -> loadTableData());
         academicianRadio.addActionListener(e -> loadTableData());
@@ -116,7 +119,8 @@ public class UniversityUI {
                 }
 
                 if (courseExists(course)) {
-                    JOptionPane.showMessageDialog(mainPanel, "Course does not exist.", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(mainPanel, "Course does not exist.", "Error",
+                            JOptionPane.ERROR_MESSAGE);
                     return;
                 }
 
