@@ -43,7 +43,7 @@ public class JListGUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setSize(600, 500);
-        frame.setResizable(false);
         frame.setVisible(true);
+        frame.setMinimumSize(new Dimension(600,500));
     }
 }
